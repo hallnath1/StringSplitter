@@ -75,9 +75,24 @@ def test_split_two_string_result_array_of_two():
     assert result == expResult
 
 
-def test_split_one_string_result_array_of_one_remove_trailing_comma():
+def test_split_one_string_result_array_of_one_remove_initial_comma():
     # arrange
     stringToSplit = ",java"
+    regex = ","
+    expResult = ["java"]
+    result = None
+    cut = TagManipulator()
+
+    # act
+    result = cut.parse_string(stringToSplit, regex)
+
+    # assert
+    assert result == expResult
+
+
+def test_split_one_string_result_array_of_one_remove_trailing_comma():
+    # arrange
+    stringToSplit = "java,"
     regex = ","
     expResult = ["java"]
     result = None
