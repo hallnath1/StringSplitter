@@ -103,3 +103,18 @@ def test_split_one_string_result_array_of_one_remove_trailing_comma():
 
     # assert
     assert result == expResult
+
+
+def test_two_string_with_internal_space():
+    # arrange
+    stringToSplit = "java byte code, python"
+    regex = ","
+    expResult = ["java byte code", "python"]
+    result = None
+    cut = TagManipulator()
+
+    # act
+    result = cut.parse_string(stringToSplit, regex)
+
+    # assert
+    assert result == expResult
